@@ -13,6 +13,7 @@ namespace Web11.Models.Core
         [Key]
         public int Id { get; set; }
 
+        [Index(IsUnique = true)]
         public string Name { get; set; }
 
         public string Description { get; set; }

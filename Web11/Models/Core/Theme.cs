@@ -18,6 +18,7 @@ namespace Web11.Models.Core
 
         public SubForum SubForum { get; set; }
 
+        [Index(IsUnique = true)]
         public string Title { get; set; }
 
         [ForeignKey("Author")]

@@ -24,9 +24,6 @@ namespace Web11.Models.Core
 
         public DateTime TimeStamp { get; set; }
 
-        [ForeignKey("ParentComment")]
-        public int ParentComment_Id { get; set; }
-
         public Comment ParentComment { get; set; }
 
         public string Content { get; set; }

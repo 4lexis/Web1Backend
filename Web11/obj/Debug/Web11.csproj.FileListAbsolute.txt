@@ -125,3 +125,7 @@ C:\Users\Alexis\documents\visual studio 2015\Projects\Web11\Web11\bin\zh-Hans\Sy
 C:\Users\Alexis\documents\visual studio 2015\Projects\Web11\Web11\bin\zh-Hant\System.Spatial.resources.dll
 C:\Users\Alexis\documents\visual studio 2015\Projects\Web11\Web11\obj\Debug\Web11.Migrations.Initial.resources
 C:\Users\Alexis\documents\visual studio 2015\Projects\Web11\Web11\obj\Debug\Web11.csproj.GenerateResource.Cache
+C:\Users\Alexis\documents\visual studio 2015\Projects\Web11\Web11\obj\Debug\Web11.Migrations.ConfigureFKComment.resources
+C:\Users\Alexis\documents\visual studio 2015\Projects\Web11\Web11\bin\System.Web.Cors.dll
+C:\Users\Alexis\documents\visual studio 2015\Projects\Web11\Web11\bin\System.Web.Http.Cors.dll
+C:\Users\Alexis\documents\visual studio 2015\Projects\Web11\Web11\bin\System.Web.Http.Cors.xml

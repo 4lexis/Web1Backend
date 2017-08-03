@@ -18,7 +18,8 @@ namespace Web11.Models.Core
     {
         [Key]
         public int Id { get; set; }
-       
+
+        [Index(IsUnique = true)]
         public string Username { get; set; }
 
         public string Password { get; set; }
