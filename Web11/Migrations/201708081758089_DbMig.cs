@@ -3,7 +3,7 @@ namespace Web11.Migrations
     using System;
     using System.Data.Entity.Migrations;
     
-    public partial class Initial : DbMigration
+    public partial class DbMig : DbMigration
     {
         public override void Up()
         {
@@ -15,14 +15,14 @@ namespace Web11.Migrations
                         Theme_Id = c.Int(nullable: false),
                         Author_Id = c.Int(nullable: false),
                         TimeStamp = c.DateTime(nullable: false),
-                        ParentComment_Id = c.Int(nullable: false),
                         Content = c.String(),
                         Likes = c.Int(nullable: false),
                         Dislikes = c.Int(nullable: false),
                         Edited = c.Boolean(nullable: false),
+                        ParentComment_Id = c.Int(),
                     })
                 .PrimaryKey(t => t.Id)
-                .ForeignKey("dbo.Users", t => t.Author_Id, cascadeDelete: true)
+                .ForeignKey("dbo.Users", t => t.Author_Id, cascadeDelete: false)
                 .ForeignKey("dbo.Comments", t => t.ParentComment_Id)
                 .ForeignKey("dbo.Themes", t => t.Theme_Id, cascadeDelete: true)
                 .Index(t => t.Theme_Id)
@@ -34,7 +34,7 @@ namespace Web11.Migrations
                 c => new
                     {
                         Id = c.Int(nullable: false, identity: true),
-                        Username = c.String(),
+                        Username = c.String(maxLength: 450),
                         Password = c.String(),
                         Name = c.String(),
                         LastName = c.String(),
@@ -43,7 +43,8 @@ namespace Web11.Migrations
                         Email = c.String(),
                         RegistrationTime = c.DateTime(nullable: false),
                     })
-                .PrimaryKey(t => t.Id);
+                .PrimaryKey(t => t.Id)
+                .Index(t => t.Username, unique: true);
             
             CreateTable(
                 "dbo.Themes",
@@ -51,7 +52,7 @@ namespace Web11.Migrations
                     {
                         Id = c.Int(nullable: false, identity: true),
                         SubForum_Id = c.Int(nullable: false),
-                        Title = c.String(),
+                        Title = c.String(maxLength: 450),
                         Author_Id = c.Int(nullable: false),
                         Text = c.String(),
                         Image = c.String(),
@@ -64,6 +65,7 @@ namespace Web11.Migrations
                 .ForeignKey("dbo.Users", t => t.Author_Id, cascadeDelete: false)
                 .ForeignKey("dbo.SubForums", t => t.SubForum_Id, cascadeDelete: true)
                 .Index(t => t.SubForum_Id)
+                .Index(t => t.Title, unique: true)
                 .Index(t => t.Author_Id);
             
             CreateTable(
@@ -71,13 +73,15 @@ namespace Web11.Migrations
                 c => new
                     {
                         Id = c.Int(nullable: false, identity: true),
-                        Name = c.String(),
+                        Name = c.String(maxLength: 450),
                         Description = c.String(),
                         Image = c.String(),
+                        Rules = c.String(),
                         ResponsibleModerator_Id = c.Int(nullable: false),
                     })
                 .PrimaryKey(t => t.Id)
                 .ForeignKey("dbo.Users", t => t.ResponsibleModerator_Id, cascadeDelete: false)
+                .Index(t => t.Name, unique: true)
                 .Index(t => t.ResponsibleModerator_Id);
             
             CreateTable(
@@ -90,7 +94,7 @@ namespace Web11.Migrations
                     })
                 .PrimaryKey(t => t.Id)
                 .ForeignKey("dbo.SubForums", t => t.SubForum_Id, cascadeDelete: true)
-                .ForeignKey("dbo.Users", t => t.User_Id, cascadeDelete: true)
+                .ForeignKey("dbo.Users", t => t.User_Id, cascadeDelete: false)
                 .Index(t => t.User_Id)
                 .Index(t => t.SubForum_Id);
             
@@ -134,7 +138,7 @@ namespace Web11.Migrations
                     })
                 .PrimaryKey(t => t.Id)
                 .ForeignKey("dbo.Themes", t => t.Theme_Id, cascadeDelete: true)
-                .ForeignKey("dbo.Users", t => t.User_Id, cascadeDelete: true)
+                .ForeignKey("dbo.Users", t => t.User_Id, cascadeDelete: false)
                 .Index(t => t.User_Id)
                 .Index(t => t.Theme_Id);
             
@@ -165,8 +169,11 @@ namespace Web11.Migrations
             DropIndex("dbo.FollowSubForums", new[] { "SubForum_Id" });
             DropIndex("dbo.FollowSubForums", new[] { "User_Id" });
             DropIndex("dbo.SubForums", new[] { "ResponsibleModerator_Id" });
+            DropIndex("dbo.SubForums", new[] { "Name" });
             DropIndex("dbo.Themes", new[] { "Author_Id" });
+            DropIndex("dbo.Themes", new[] { "Title" });
             DropIndex("dbo.Themes", new[] { "SubForum_Id" });
+            DropIndex("dbo.Users", new[] { "Username" });
             DropIndex("dbo.Comments", new[] { "ParentComment_Id" });
             DropIndex("dbo.Comments", new[] { "Author_Id" });
             DropIndex("dbo.Comments", new[] { "Theme_Id" });

@@ -11,7 +11,7 @@ namespace Web11.Migrations
     {
         public Configuration()
         {
-            AutomaticMigrationsEnabled = false;
+            AutomaticMigrationsEnabled = false;                        
         }
 
         protected override void Seed(Web11.Models.AccessDB context)
@@ -38,6 +38,7 @@ namespace Web11.Migrations
             user1.RegistrationTime = DateTime.Now;
             user1.Role = Role.Admin;
             user1.Username = "skoricnik";
+            user1.Email = "skore@gmail.com";
 
             User user2 = new User();
             user2.Name = "Mihael";
@@ -47,6 +48,7 @@ namespace Web11.Migrations
             user2.RegistrationTime = DateTime.Now;
             user2.Role = Role.Admin;
             user2.Username = "farkas";
+            user2.Email = "farkas@gmail.com";
 
             User user3 = new User();
             user3.Name = "Nemanja";
@@ -56,6 +58,7 @@ namespace Web11.Migrations
             user3.RegistrationTime = DateTime.Now;
             user3.Role = Role.Admin;
             user3.Username = "rosic";
+            user3.Email = "rosic@gmail.com";
 
             User user4 = new User();
             user4.Name = "Aleksandar";
@@ -65,6 +68,7 @@ namespace Web11.Migrations
             user4.RegistrationTime = DateTime.Now;
             user4.Role = Role.Admin;
             user4.Username = "duduk";
+            user4.Email = "duduk@gmail.com";
 
             #endregion
 
@@ -72,20 +76,23 @@ namespace Web11.Migrations
             SubForum s1 = new SubForum();
             s1.Name = "Music";
             s1.ResponsibleModerator = user1;
-            s1.Rules = new List<string>();
             s1.Image = "https://image.freepik.com/free-icon/black-simple-music-note-vector_318-10095.jpg";
+            s1.Description = "Music u like will be here";
+            s1.Rules = "Be good";
 
             SubForum s2 = new SubForum();
             s2.Name = "Videos";
             s2.ResponsibleModerator = user2;
-            s2.Rules = new List<string>();
             s2.Image = "http://www.steppinoutband.net/wp-content/uploads/2015/03/media_video_icon_pc_800_clr_4466.png";
+            s2.Description = "Funny videos";
+            s2.Rules = "Quite";
 
             SubForum s3 = new SubForum();
             s3.Name = "Photos";
             s3.ResponsibleModerator = user3;
-            s3.Rules = new List<string>();
             s3.Image = "http://images.clipartpanda.com/camera-clipart-png-KineKyLXT.png";
+            s3.Description = "PhotoBomb";
+            s3.Rules = "Pirate";
 
             #endregion
 

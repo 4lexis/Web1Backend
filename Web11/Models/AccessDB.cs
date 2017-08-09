@@ -20,7 +20,7 @@ namespace Web11.Models
 
         public AccessDB() : base("DB")
         {
-            this.Configuration.ProxyCreationEnabled = false; // ADD THIS LINE !
+            this.Configuration.ProxyCreationEnabled = false; // ADD THIS LINE !            
         }
     }
 }

@@ -7,13 +7,13 @@ namespace Web11.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.1.3-40302")]
-    public sealed partial class Initial : IMigrationMetadata
+    public sealed partial class DbMig : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(Initial));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(DbMig));
         
         string IMigrationMetadata.Id
         {
-            get { return "201708022043532_Initial"; }
+            get { return "201708081758089_DbMig"; }
         }
         
         string IMigrationMetadata.Source

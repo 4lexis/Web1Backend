@@ -20,6 +20,7 @@ namespace Web11.Models.Core
         public int Id { get; set; }
 
         [Index(IsUnique = true)]
+        [StringLength(450)]
         public string Username { get; set; }
 
         public string Password { get; set; }

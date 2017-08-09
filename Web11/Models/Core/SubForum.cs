@@ -14,13 +14,14 @@ namespace Web11.Models.Core
         public int Id { get; set; }
 
         [Index(IsUnique = true)]
+        [StringLength(450)]
         public string Name { get; set; }
 
         public string Description { get; set; }
 
         public string Image { get; set; }
 
-        public List<string> Rules { get; set; }
+        public string Rules { get; set; }
 
         [ForeignKey("ResponsibleModerator")]
         public int ResponsibleModerator_Id { get; set; }

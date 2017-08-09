@@ -26,14 +26,15 @@ namespace Web11.Controllers
         }
 
         [EnableQuery]
-        // GET: api/Users/5
+        // GET: api/Users/username&password
         [ResponseType(typeof(User))]
-        public IHttpActionResult GetUser(int id)
+        public IHttpActionResult GetUser(string username, string password)
         {
-            User user = db.Users.Find(id);
-            if (user == null)
+            User user = db.Users.Where(x => x.Username == username && x.Password == password).FirstOrDefault() as User;
+
+            if (user == null || user.Password != password)
             {
-                return NotFound();
+                return null;
             }
 
             return Ok(user);
@@ -78,6 +79,9 @@ namespace Web11.Controllers
         [ResponseType(typeof(User))]
         public IHttpActionResult PostUser(User user)
         {
+            user.RegistrationTime = DateTime.Now;
+            user.Role = Role.Regular;
+
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);

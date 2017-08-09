@@ -271,13 +271,9 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201708022043532_Initial.cs" />
-    <Compile Include="Migrations\201708022043532_Initial.Designer.cs">
-      <DependentUpon>201708022043532_Initial.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201708031910296_Configure FK Comment.cs" />
-    <Compile Include="Migrations\201708031910296_Configure FK Comment.Designer.cs">
-      <DependentUpon>201708031910296_Configure FK Comment.cs</DependentUpon>
+    <Compile Include="Migrations\201708081758089_DbMig.cs" />
+    <Compile Include="Migrations\201708081758089_DbMig.Designer.cs">
+      <DependentUpon>201708081758089_DbMig.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccessDB.cs" />
@@ -369,11 +365,8 @@
     <Content Include="Scripts\jquery-1.10.2.min.map" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201708022043532_Initial.resx">
-      <DependentUpon>201708022043532_Initial.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201708031910296_Configure FK Comment.resx">
-      <DependentUpon>201708031910296_Configure FK Comment.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201708081758089_DbMig.resx">
+      <DependentUpon>201708081758089_DbMig.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

@@ -78,15 +78,22 @@ namespace Web11.Controllers
         [ResponseType(typeof(SubForum))]
         public IHttpActionResult PostSubForum(SubForum subForum)
         {
-            if (!ModelState.IsValid)
+            try
             {
-                return BadRequest(ModelState);
+                if (!ModelState.IsValid)
+                {
+                    return BadRequest(ModelState);
+                }
+
+                db.SubForums.Add(subForum);
+                db.SaveChanges();
+
+                return CreatedAtRoute("DefaultApi", new { id = subForum.Id }, subForum);
             }
-
-            db.SubForums.Add(subForum);
-            db.SaveChanges();
-
-            return CreatedAtRoute("DefaultApi", new { id = subForum.Id }, subForum);
+            catch(Exception exc)
+            {
+                return StatusCode(HttpStatusCode.NotAcceptable);
+            }
         }
 
         // DELETE: api/SubForums/5
