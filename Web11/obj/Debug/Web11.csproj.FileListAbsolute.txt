@@ -126,5 +126,5 @@ C:\Users\Alexis\documents\visual studio 2015\Projects\Web11\Web11\bin\zh-Hant\Sy
 C:\Users\Alexis\documents\visual studio 2015\Projects\Web11\Web11\bin\System.Web.Cors.dll
 C:\Users\Alexis\documents\visual studio 2015\Projects\Web11\Web11\bin\System.Web.Http.Cors.dll
 C:\Users\Alexis\documents\visual studio 2015\Projects\Web11\Web11\bin\System.Web.Http.Cors.xml
-C:\Users\Alexis\Documents\Visual Studio 2015\Projects\Web11\Web11\obj\Debug\Web11.Migrations.DbMig.resources
+C:\Users\Alexis\Documents\Visual Studio 2015\Projects\Web11\Web11\obj\Debug\Web11.Migrations.NewDbMig.resources
 C:\Users\Alexis\Documents\Visual Studio 2015\Projects\Web11\Web11\obj\Debug\Web11.csproj.GenerateResource.Cache

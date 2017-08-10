@@ -261,6 +261,8 @@
     <Compile Include="Controllers\CommentsController.cs" />
     <Compile Include="Controllers\FollowSubForumsController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\LikeCommentsController.cs" />
+    <Compile Include="Controllers\LikeThemesController.cs" />
     <Compile Include="Controllers\MessagesController.cs" />
     <Compile Include="Controllers\SavedCommentsController.cs" />
     <Compile Include="Controllers\SavedThemesController.cs" />
@@ -271,9 +273,9 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201708081758089_DbMig.cs" />
-    <Compile Include="Migrations\201708081758089_DbMig.Designer.cs">
-      <DependentUpon>201708081758089_DbMig.cs</DependentUpon>
+    <Compile Include="Migrations\201708101617137_New DbMig.cs" />
+    <Compile Include="Migrations\201708101617137_New DbMig.Designer.cs">
+      <DependentUpon>201708101617137_New DbMig.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccessDB.cs" />
@@ -281,6 +283,8 @@
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Core\Comment.cs" />
     <Compile Include="Models\Core\FollowSubForum.cs" />
+    <Compile Include="Models\Core\LikeComment.cs" />
+    <Compile Include="Models\Core\LikeTheme.cs" />
     <Compile Include="Models\Core\Message.cs" />
     <Compile Include="Models\Core\SavedComment.cs" />
     <Compile Include="Models\Core\SavedTheme.cs" />
@@ -365,8 +369,8 @@
     <Content Include="Scripts\jquery-1.10.2.min.map" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201708081758089_DbMig.resx">
-      <DependentUpon>201708081758089_DbMig.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201708101617137_New DbMig.resx">
+      <DependentUpon>201708101617137_New DbMig.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

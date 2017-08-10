@@ -7,7 +7,7 @@ using System.Web;
 
 namespace Web11.Models.Core
 {
-    public class FollowSubForum
+    public class LikeTheme
     {
         [Key]
         public int Id { get; set; }
@@ -18,10 +18,12 @@ namespace Web11.Models.Core
 
         public User User { get; set; }
 
-        [ForeignKey("SubForum")]
+        [ForeignKey("Theme")]
         [Index("IX_Key", 2, IsUnique = true)]
-        public int SubForum_Id { get; set; }
+        public int? Theme_Id { get; set; }
 
-        public SubForum SubForum { get; set; }
+        public Theme Theme { get; set; }
+
+        public bool IsLiked { get; set; }
     }
 }

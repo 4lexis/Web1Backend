@@ -17,6 +17,8 @@ namespace Web11.Models
         public virtual DbSet<Message> Messages { get; set; }
         public virtual DbSet<FollowSubForum> FollowSubForums { get; set; }
         public virtual DbSet<Comment> Comments { get; set; }
+        public virtual DbSet<LikeTheme> LikeThemes { get; set; }
+        public virtual DbSet<LikeComment> LikeComment { get; set; }
 
         public AccessDB() : base("DB")
         {

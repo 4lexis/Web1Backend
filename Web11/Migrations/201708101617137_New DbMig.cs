@@ -3,7 +3,7 @@ namespace Web11.Migrations
     using System;
     using System.Data.Entity.Migrations;
     
-    public partial class DbMig : DbMigration
+    public partial class NewDbMig : DbMigration
     {
         public override void Up()
         {
@@ -95,8 +95,35 @@ namespace Web11.Migrations
                 .PrimaryKey(t => t.Id)
                 .ForeignKey("dbo.SubForums", t => t.SubForum_Id, cascadeDelete: true)
                 .ForeignKey("dbo.Users", t => t.User_Id, cascadeDelete: false)
-                .Index(t => t.User_Id)
-                .Index(t => t.SubForum_Id);
+                .Index(t => new { t.User_Id, t.SubForum_Id }, unique: true, name: "IX_Key");
+            
+            CreateTable(
+                "dbo.LikeComments",
+                c => new
+                    {
+                        Id = c.Int(nullable: false, identity: true),
+                        User_Id = c.Int(nullable: false),
+                        Comment_Id = c.Int(),
+                        IsLiked = c.Boolean(nullable: false),
+                    })
+                .PrimaryKey(t => t.Id)
+                .ForeignKey("dbo.Comments", t => t.Comment_Id)
+                .ForeignKey("dbo.Users", t => t.User_Id, cascadeDelete: false)
+                .Index(t => new { t.User_Id, t.Comment_Id }, unique: true, name: "IX_Key");
+            
+            CreateTable(
+                "dbo.LikeThemes",
+                c => new
+                    {
+                        Id = c.Int(nullable: false, identity: true),
+                        User_Id = c.Int(nullable: false),
+                        Theme_Id = c.Int(),
+                        IsLiked = c.Boolean(nullable: false),
+                    })
+                .PrimaryKey(t => t.Id)
+                .ForeignKey("dbo.Themes", t => t.Theme_Id)
+                .ForeignKey("dbo.Users", t => t.User_Id, cascadeDelete: false)
+                .Index(t => new { t.User_Id, t.Theme_Id }, unique: true, name: "IX_Key");
             
             CreateTable(
                 "dbo.Messages",
@@ -152,6 +179,10 @@ namespace Web11.Migrations
             DropForeignKey("dbo.SavedComments", "Comment_Id", "dbo.Comments");
             DropForeignKey("dbo.Messages", "Sender_Id", "dbo.Users");
             DropForeignKey("dbo.Messages", "Receiver_Id", "dbo.Users");
+            DropForeignKey("dbo.LikeThemes", "User_Id", "dbo.Users");
+            DropForeignKey("dbo.LikeThemes", "Theme_Id", "dbo.Themes");
+            DropForeignKey("dbo.LikeComments", "User_Id", "dbo.Users");
+            DropForeignKey("dbo.LikeComments", "Comment_Id", "dbo.Comments");
             DropForeignKey("dbo.FollowSubForums", "User_Id", "dbo.Users");
             DropForeignKey("dbo.FollowSubForums", "SubForum_Id", "dbo.SubForums");
             DropForeignKey("dbo.Comments", "Theme_Id", "dbo.Themes");
@@ -166,8 +197,9 @@ namespace Web11.Migrations
             DropIndex("dbo.SavedComments", new[] { "User_Id" });
             DropIndex("dbo.Messages", new[] { "Receiver_Id" });
             DropIndex("dbo.Messages", new[] { "Sender_Id" });
-            DropIndex("dbo.FollowSubForums", new[] { "SubForum_Id" });
-            DropIndex("dbo.FollowSubForums", new[] { "User_Id" });
+            DropIndex("dbo.LikeThemes", "IX_Key");
+            DropIndex("dbo.LikeComments", "IX_Key");
+            DropIndex("dbo.FollowSubForums", "IX_Key");
             DropIndex("dbo.SubForums", new[] { "ResponsibleModerator_Id" });
             DropIndex("dbo.SubForums", new[] { "Name" });
             DropIndex("dbo.Themes", new[] { "Author_Id" });
@@ -180,6 +212,8 @@ namespace Web11.Migrations
             DropTable("dbo.SavedThemes");
             DropTable("dbo.SavedComments");
             DropTable("dbo.Messages");
+            DropTable("dbo.LikeThemes");
+            DropTable("dbo.LikeComments");
             DropTable("dbo.FollowSubForums");
             DropTable("dbo.SubForums");
             DropTable("dbo.Themes");
