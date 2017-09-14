@@ -31,34 +31,34 @@ namespace Web11.Migrations
 
             #region USERS
             User user1 = new User();
-            user1.Name = "Nikola";
-            user1.LastName = "Skoric";
-            user1.Password = "02011994";
+            user1.Name = "Pera";
+            user1.LastName = "Peric";
+            user1.Password = "12345";
             user1.Phone = "0642993955";
             user1.RegistrationTime = DateTime.Now;
             user1.Role = Role.Admin;
-            user1.Username = "skoricnik";
-            user1.Email = "skore@gmail.com";
+            user1.Username = "pera";
+            user1.Email = "perinjo@gmail.com";
 
             User user2 = new User();
-            user2.Name = "Mihael";
-            user2.LastName = "Farkas";
+            user2.Name = "Mitar";
+            user2.LastName = "Miric";
             user2.Password = "12345";
             user2.Phone = "0632716283";
             user2.RegistrationTime = DateTime.Now;
             user2.Role = Role.Admin;
-            user2.Username = "farkas";
-            user2.Email = "farkas@gmail.com";
+            user2.Username = "mittar";
+            user2.Email = "mit77@gmail.com";
 
             User user3 = new User();
-            user3.Name = "Nemanja";
-            user3.LastName = "Rosic";
+            user3.Name = "Jap";
+            user3.LastName = "Stam";
             user3.Password = "12345";
             user3.Phone = "061221832";
             user3.RegistrationTime = DateTime.Now;
             user3.Role = Role.Admin;
-            user3.Username = "rosic";
-            user3.Email = "rosic@gmail.com";
+            user3.Username = "yup";
+            user3.Email = "yypp@gmail.com";
 
             User user4 = new User();
             user4.Name = "Aleksandar";
@@ -83,7 +83,7 @@ namespace Web11.Migrations
             SubForum s2 = new SubForum();
             s2.Name = "Videos";
             s2.ResponsibleModerator = user2;
-            s2.Image = "http://www.steppinoutband.net/wp-content/uploads/2015/03/media_video_icon_pc_800_clr_4466.png";
+            s2.Image = "https://image.flaticon.com/icons/svg/34/34099.svg";
             s2.Description = "Funny videos";
             s2.Rules = "Quite";
 
@@ -102,8 +102,8 @@ namespace Web11.Migrations
             t1.CreationDate = DateTime.Now;
             t1.Dislikes = 10;
             t1.Likes = 20;
-            t1.Text = "Theme 1 text";
-            t1.Title = "Theme 1";
+            t1.Text = "some theme text";
+            t1.Title = "Theme one";
             t1.SubForum = s1;
 
             Theme t2 = new Theme();
@@ -111,7 +111,7 @@ namespace Web11.Migrations
             t2.CreationDate = DateTime.Now;
             t2.Dislikes = 12;
             t2.Likes = 21;
-            t2.Text = "Theme 2 text";
+            t2.Text = "Bip bop bop bip bip bop";
             t2.Title = "Theme 2";
             t2.SubForum = s1;
 
@@ -120,8 +120,8 @@ namespace Web11.Migrations
             t3.CreationDate = DateTime.Now;
             t3.Dislikes = 10;
             t3.Likes = 20;
-            t3.Text = "Theme 3 text";
-            t3.Title = "Theme 3";
+            t3.Text = "you know what is the message";
+            t3.Title = "Theme 404";
             t3.SubForum = s2;
 
             Theme t4 = new Theme();
@@ -129,45 +129,45 @@ namespace Web11.Migrations
             t4.CreationDate = DateTime.Now;
             t4.Dislikes = 11;
             t4.Likes = 210;
-            t4.Text = "Theme 4 text";
-            t4.Title = "Theme 4";
+            t4.Text = "jedna sasvim obicna tema";
+            t4.Title = "Title theme";
             t4.SubForum = s3;
             #endregion
 
             #region COMMENTS
             Comment c1 = new Comment();
             c1.Author = user1;
-            c1.Content = "Hey, this is great!";
-            c1.Dislikes = 22;
-            c1.Likes = 21;
+            c1.Content = "Wow, nice!";
+            c1.Dislikes = 5;
+            c1.Likes = 13;
             c1.TimeStamp = DateTime.Now;
             c1.Edited = false;
             c1.Theme = t1;
 
             Comment c2 = new Comment();
             c2.Author = user2;
-            c2.Content = "No, this is awesome!";
-            c2.Dislikes = 212;
-            c2.Likes = 1;
+            c2.Content = "Shieeet!";
+            c2.Dislikes = 32;
+            c2.Likes = 14;
             c2.TimeStamp = DateTime.Now;
             c2.Edited = false;
-            c2.ParentComment = c1;
+            //c2.ParentComment = c1;
             c2.Theme = t1;
 
             Comment c3 = new Comment();
             c3.Author = user3;
-            c3.Content = "Great stuff!";
-            c3.Dislikes = 2;
-            c3.Likes = 11;
+            c3.Content = "Glad you posted that stuff!";
+            c3.Dislikes = 6;
+            c3.Likes = 9;
             c3.TimeStamp = DateTime.Now;
             c3.Edited = false;
             c3.Theme = t2;
 
             Comment c4 = new Comment();
             c4.Author = user4;
-            c4.Content = "No way!";
-            c4.Dislikes = 21;
-            c4.Likes = 19;
+            c4.Content = "Cool!";
+            c4.Dislikes = 25;
+            c4.Likes = 34;
             c4.TimeStamp = DateTime.Now;
             c4.Edited = false;
             c4.Theme = t3;

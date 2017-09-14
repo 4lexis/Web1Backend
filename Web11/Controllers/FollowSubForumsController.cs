@@ -14,6 +14,7 @@ using Web11.Models.Core;
 
 namespace Web11.Controllers
 {
+    [RoutePrefix("api/FollowSubForums")]
     public class FollowSubForumsController : ApiController
     {
         private AccessDB db = new AccessDB();
@@ -90,10 +91,12 @@ namespace Web11.Controllers
         }
 
         // DELETE: api/FollowSubForums/5
+        [HttpDelete]
+        [Route("unfollow/{subforumId}/{user_Id}")]
         [ResponseType(typeof(FollowSubForum))]
-        public IHttpActionResult DeleteFollowSubForum(int id)
+        public IHttpActionResult DeleteFollowSubForum(int subforumId, int user_Id)
         {
-            FollowSubForum followSubForum = db.FollowSubForums.Find(id);
+            FollowSubForum followSubForum = db.FollowSubForums.Where(s => s.SubForum_Id == subforumId && s.User_Id == user_Id).FirstOrDefault();
             if (followSubForum == null)
             {
                 return NotFound();

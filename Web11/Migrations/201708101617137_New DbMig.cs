@@ -107,8 +107,8 @@ namespace Web11.Migrations
                         IsLiked = c.Boolean(nullable: false),
                     })
                 .PrimaryKey(t => t.Id)
-                .ForeignKey("dbo.Comments", t => t.Comment_Id)
-                .ForeignKey("dbo.Users", t => t.User_Id, cascadeDelete: false)
+                .ForeignKey("dbo.Comments", t => t.Comment_Id, cascadeDelete: true)
+                .ForeignKey("dbo.Users", t => t.User_Id, cascadeDelete: true)
                 .Index(t => new { t.User_Id, t.Comment_Id }, unique: true, name: "IX_Key");
             
             CreateTable(
@@ -121,8 +121,8 @@ namespace Web11.Migrations
                         IsLiked = c.Boolean(nullable: false),
                     })
                 .PrimaryKey(t => t.Id)
-                .ForeignKey("dbo.Themes", t => t.Theme_Id)
-                .ForeignKey("dbo.Users", t => t.User_Id, cascadeDelete: false)
+                .ForeignKey("dbo.Themes", t => t.Theme_Id, cascadeDelete:true)
+                .ForeignKey("dbo.Users", t => t.User_Id, cascadeDelete: true)
                 .Index(t => new { t.User_Id, t.Theme_Id }, unique: true, name: "IX_Key");
             
             CreateTable(
